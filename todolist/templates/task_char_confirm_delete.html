@@ -1,0 +1,20 @@
+{% extends 'task_char_list.html' %}
+
+{% load static %}
+
+{% block detail %}
+<form class="delete-form" method="POST">
+    {% csrf_token %}
+    <div>
+        <p>Are you sure you want to <span class="delete-word"><b>&nbsp;delete&nbsp;</b></span> this task?</p>
+        <p>"{{del_task}}"</p>
+        <div class="del-div">
+            <input type="submit" value="Delete" />
+        </div>
+    </div>
+</form>
+
+<div class="task-close">
+    <a href="{% url 'tasks' %}?sort={{ sort_by }}&order={{ order }}">X</a>
+</div>
+{% endblock detail %}

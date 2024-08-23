@@ -1,0 +1,28 @@
+{% extends 'login_template.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="login register">
+    <div class="register-form">
+        <form method="POST">
+            {% csrf_token %}
+            <p>{{ form.username.label_tag }} {{ form.username }}</p>
+            <small class="small-text">{{ form.username.help_text }}</small>
+
+            <p>{{ form.password1.label_tag }} {{ form.password1 }}</p>
+            <small class="small-text">{{ form.password1.help_text }}</small> 
+
+            <p>{{ form.password2.label_tag }} {{ form.password2 }}</p>
+            <small class="small-text">{{ form.password2.help_text }}</small> 
+
+            <input type="submit" value="Register" />
+        </form>
+    </div>
+
+    <div>
+        Already have an account?
+        <a class="login-text" href="{% url 'login' %}">Log in</a>
+    </div>
+</div>
+{% endblock content %}

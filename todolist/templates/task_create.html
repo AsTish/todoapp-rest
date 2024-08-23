@@ -1,0 +1,24 @@
+{% extends 'task_char_list.html' %}
+
+{% load static %}
+
+{% block detail %}
+<div class="task-form">
+    {% if 'task-update' in request.path %}
+    <div class="task-dates">created at: {{task.created_at}} UTC</div>
+        {% if task.created_at != task.updated_at %}
+        <div class="task-dates">last update: {{task.updated_at}} UTC</div>
+        {% endif %}
+    {% endif %}
+
+    <form class="task-form" method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit" />
+    </form>
+</div>
+
+<div class="task-close">
+    <a href="{% url 'tasks' %}?sort={{ sort_by }}&order={{ order }}">X</a>
+</div>
+{% endblock detail %}

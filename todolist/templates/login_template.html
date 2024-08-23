@@ -1,0 +1,23 @@
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="login-template">
+        <div class="todo-login">
+            <div class="login-header">My</div>
+            <div class="login-header">todo</div>
+            <div class="login-header">list</div>
+        </div>
+
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>

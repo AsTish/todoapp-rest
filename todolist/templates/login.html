@@ -1,0 +1,18 @@
+{% extends 'login_template.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="login">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" , value="Log in" />
+    </form>
+
+    <div>
+        don't have an account?
+        <a class="register-text" href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+{% endblock content %}

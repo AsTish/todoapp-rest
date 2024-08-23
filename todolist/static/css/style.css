@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+
+body {
+    background-color: #fff0f5; /* Цвет фона страницы */
+    margin: 0; /* Убирает стандартные отступы браузера */
+    font-family: Arial, sans-serif; /* Устанавливает шрифт для страницы */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    width: 100%;
+    height: 10rem;
+    background-color: #fbbcad;
+}
+
+.header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.user {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: auto auto;
+}
+
+.user-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 2rem
+}
+
+.logout-button {
+    margin: 0;
+    height: 1.5rem;
+    width: 5rem;
+    font-size: 1rem;
+}
+
+.logout-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-task-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    color: black;
+    text-decoration: none;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width:0.1rem;
+    margin: 0 0.1rem;
+}
+
+.task-list {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 1rem;
+}
+
+.sort-search-add {
+    display: flex;
+    justify-content: space-between;
+    height: 2rem;
+}
+
+.sort-img {
+    width: 90%;
+    height: 90%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.sort-buttons {
+    display: flex;
+}
+
+.sort-buttons a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    color: black;
+    text-decoration: none;
+}
+
+.all-search-buttons {
+    height: 2rem;
+    margin: 0.1rem;
+    border-width: 0.1rem;
+    border-radius: 0.5rem;
+    border-color: black;
+    border-style: solid;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.search-submit {
+    width: 2rem;
+    /*background-image:*/ 
+}
+
+.left-container {
+    padding: 0 2rem;
+    border-right-style: solid;
+    border-right-width: 0.2rem;
+    border-right-color: #ff0056
+}
+
+.detail {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-close {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid black;
+    border-radius: 50%;
+}
+
+.task-close a{
+    text-decoration: none;
+    color: black;
+}
+
+.task-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+ .task-line a {
+     text-decoration: none;
+     color: black;
+ }
+
+ .delete-button {
+     margin-right: 0.35rem;
+ }
+
+.delete-img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.completed-marker {
+    height: 1rem;
+    width: 1rem;
+    border: 0.1rem solid, black;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.task-tittle {
+    display: flex;
+    align-items: center;
+}
+
+.task-form {
+    margin-top: 1rem;
+}
+
+.completed-false {
+    background-color: #ff7777;
+}
+
+.completed-true {
+    background-color: #77ff77;
+}
+
+.task-form label {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-form input[type=text] {
+    width: 30rem;
+    font-size: 1rem;
+}
+
+.task-form input[type=checkbox] {
+    margin: 0;
+    padding: 0;
+    height: 1rem;
+    width: 1rem;
+}
+
+.task-form input[type=submit] {
+    width: 5rem;
+    height: 1.5rem;
+}
+
+label[for="id_title"],
+label[for='id_description'] {
+    display: block;
+}
+
+.task-form textarea {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.delete-form p {
+    display: flex;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.delete-form input[type=submit] {
+    font-size: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 0.2rem;
+    height: 2rem;
+    width: 5rem;
+    background-color: white;
+    color: black;
+}
+
+.delete-word {
+    color: red;
+}
+
+.del-div {
+    display: flex;
+    justify-content: center;
+}
+
+.login-template {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.login {
+    padding: 1rem;
+    border: 0.1rem solid red;
+    border-radius: 1rem;
+}
+
+.login label,
+.register-form label{
+    font-size: 1.5rem;
+}
+
+.login input[type=text],
+.login input[type=password] {
+    height: 2rem;
+    width: 100%;
+    border: 0.1rem solid red;
+    font-size: 1rem;
+}
+
+.login textarea,
+.register-form textarea {
+    font-size: 1rem;
+}
+
+.login input[type=submit] {
+    background-color: white;
+    height: 2rem;
+    font-size: 1rem;
+    width: 4rem;
+    border: 0.1rem solid red;
+    color: red;
+}
+
+.login p {
+    margin-block-start: 0;
+    margin-block-end: 1rem;
+}
+
+.login-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9rem;
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;
+    font-style: normal;
+    color: #ff0056
+}
+
+.register-text,
+.login-text {
+    text-decoration: none;
+    color: #00f
+}
+
+.register {
+    width: 30%;
+}
+
+.register-form input[type=submit] {
+    background-color: white;
+    height: 2rem;
+    font-size: 1rem;
+    width: 6rem;
+    border: 0.1rem solid red;
+}
+
+.small-text {
+    display: block;
+    margin-block-end: 1rem;
+}
+
+.task-dates {
+    display: block;
+    color: #414141;
+    margin-block-end: 0.5rem
+}

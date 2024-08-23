@@ -1,0 +1,64 @@
+﻿{% extends 'header.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="task-list">
+    <div class="left-container">
+        <div class="sort-search-add">
+            <div class="search-container">
+                <div class="sort-buttons">
+                    <a class="all-search-buttons sort-button" href="?sort=updated_at&order=desc">
+                        <img class="sort-img" src="{% static 'img/data-desc.png' %}" alt="data-desc" />
+                    </a>
+                    <a class="all-search-buttons sort-button" href="?sort=updated_at&order=asc">
+                        <img class="sort-img" src="{% static 'img/data-asc.png' %}" alt="data-asc" />
+                    </a>
+                    <a class="all-search-buttons sort-button" href="?sort=title&order=asc">
+                        <img class="sort-img" src="{% static 'img/alphabet-asc.png' %}" alt="alphabet-asc" />
+                    </a>
+                    <a class="all-search-buttons sort-button" href="?sort=title&order=desc">
+                        <img class="sort-img" src="{% static 'img/alphabet-desc.png' %}" alt="alphabet-desc" />
+                    </a>
+                </div>
+                <form class="search-form" method="GET">
+                    <input class="all-search-buttons search-area" type="text" name="search-area" value="{{search_input}}" />
+                    <input class="all-search-buttons search-submit" type="image" src="{% static 'img/54481.png' %}" alt="submit"/>
+                </form>
+            </div>
+            <a class="add-task-link" href="{% url 'task-create' %}?sort={{ sort_by }}&order={{ order }}">+</a>
+        </div>
+
+        <div class="task-form">
+            {% for task in tasks %}
+            <div class="task-line">
+                <div class="task-tittle">
+                    {% if task.completed %}
+                    <div class="completed-marker completed-true"></div>
+                    <s><a href="{% url 'task-update' task.id %}?sort={{ sort_by }}&order={{ order }}">{{task.title}}</a></s>;
+                    {% else %}
+                    <div class="completed-marker completed-false"></div>
+                    <a href="{% url 'task-update' task.id %}?sort={{ sort_by }}&order={{ order }}">{{task.title}}</a>
+                    {% endif %}
+                </div>
+                <div class="delete-button">
+                    <a href="{% url 'task-delete' task.id %}?sort={{ sort_by }}&order={{ order }}">
+                        <img class="delete-img" src="{% static 'img/2891491.png' %}" alt="Delete"/>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div>
+                <div>No items in list</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="detail">
+        {% block detail %}
+        {% endblock detail %}
+    </div>
+</div>
+
+{% endblock content %}
