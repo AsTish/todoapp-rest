@@ -6,3 +6,6 @@ It is also possible to sort tasks by date and name (completed ones are always at
 2) go to the todoapp directory
 3) to install all dependencies: pipenv shell
 4) to run the project: pipenv run python manage.py runserver
+
+## API requests
+...
