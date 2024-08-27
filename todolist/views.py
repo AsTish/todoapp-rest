@@ -203,7 +203,13 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
         context['order'] = order
 
         return context
-    
+
+    def delete(self, request, *args, **kwargs):
+        # Удаляем объект
+        self.object = self.get_object()
+        self.object.delete()
+
+        return HttpResponse(status=204)    
 
     
     
