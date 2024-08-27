@@ -18,8 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from todolist.views import TaskDelete, TaskList, TaskDetail, TaskCreate, TaskUpdate, CustomLoginView, RegisterPage
 from django.contrib.auth.views import LogoutView
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('swagger/', TemplateView.as_view(
+        template_name="{% static 'swagger/index.html' %}",
+        extra_context={'schema_url': 'swagger/openapi_spec.json'}
+    ), name='swagger-ui'),
+
     path('admin/', admin.site.urls),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
