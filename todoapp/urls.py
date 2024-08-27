@@ -22,7 +22,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('swagger/', TemplateView.as_view(
-        template_name="{% static 'swagger/index.html' %}",
+        template_name='index.html',
         extra_context={'schema_url': 'swagger/openapi_spec.json'}
     ), name='swagger-ui'),
 
