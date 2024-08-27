@@ -170,7 +170,7 @@ class TaskDeleteTest(TestCase):
         response = self.client.delete(self.delete_url)
 
         # Проверка статуса ответа
-        self.assertEqual(response.status_code, 204)
+        self.assertEqual(response.status_code, 204)t
 
         # Проверка, что задача была удалена
         self.assertFalse(Task_char.objects.filter(id=self.task.id).exists())
