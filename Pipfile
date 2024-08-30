@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 drf-yasg = "*"
 django-rest-swagger = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 setuptools = "*"
