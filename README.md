@@ -4,7 +4,7 @@ It is also possible to sort tasks by date and name (completed ones are always at
 ## how to build on windows (from command line)
 1) clone this repository using the command: git clone https://github.com/AsTish/todoapp.git
 2) go to the todoapp directory
-3) to install all dependencies: pipenv shell
+3) to install all dependencies: pipenv install --
 4) to run the project: pipenv run python manage.py runserver
 
 ## API requests
