@@ -21,8 +21,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from rest_framework.authentication import TokenAuthentication
 
+
 from todolist.models import Task_char 
-from todolist.serializers import TaskCharSerializer
+from todolist.serializers import TaskCharSerializer, RegisterSerializer
 from todolist.permissions import IsNotAuthenticated
 
 # Create your views here.
@@ -42,7 +43,6 @@ class LoginAPIView(APIView):
         return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class LogoutAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -51,23 +51,15 @@ class LogoutAPIView(APIView):
         return Response({"detail": "Successfully logged out"}, status=status.HTTP_200_OK)
     
 
-class RegisterPage(FormView):
-    template_name = 'register.html'
-    form_class = UserCreationForm   # how to create my own form
-    redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
-    fields = ['username', 'password1', 'password2']
-    
-    def form_valid(self, form):
-        user = form.save()
-        if user is not None:
-            login(self.request, user)
-        return super(RegisterPage, self).form_valid(form)
-    
-    def get(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('tasks')
-        return super(RegisterPage, self).get(*args, **kwargs)
+class RegisterAPIView(APIView):
+    permission_classes = [AllowAny]  # Доступ для незарегистрированных пользователей
+
+    def post(self, request, *args, **kwargs):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({"detail": "User successfully registered"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TaskCharListView(generics.ListAPIView):

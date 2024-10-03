@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView
-from todolist.views import TaskCharListView, TaskCharDetailView, TaskCharCreateView, TaskCharUpdateView, TaskDeleteAPIView, LoginAPIView, LogoutAPIView
+from todolist.views import TaskCharListView, TaskCharDetailView, TaskCharCreateView, TaskCharUpdateView, TaskDeleteAPIView, LoginAPIView, LogoutAPIView, RegisterAPIView
 
 urlpatterns = [
     path('swagger/', TemplateView.as_view(
@@ -36,4 +36,5 @@ urlpatterns = [
     path('tasks/delete/<uuid:pk>/', TaskDeleteAPIView.as_view(), name='task-delete'),
     path('login/', LoginAPIView.as_view(), name='login'),
     path('logout/', LogoutAPIView.as_view(), name='logout'),
+    path('register/', RegisterAPIView.as_view(), name='register'),
 ]
