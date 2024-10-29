@@ -27,7 +27,6 @@ urlpatterns = [
     ), name='swagger-ui'),
 
     path('admin/', admin.site.urls),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 
     path('tasks/', TaskCharListView.as_view(), name='task-list'),
     path('tasks/<uuid:pk>/', TaskCharDetailView.as_view(), name='task-detail'),
